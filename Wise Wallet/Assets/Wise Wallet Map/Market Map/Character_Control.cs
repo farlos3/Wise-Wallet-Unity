@@ -1,4 +1,20 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+// สำหรับคลาส ShopItem ถ้าอยู่ในไฟล์นี้
+public class ShopItem
+{
+    public string ItemName { get; set; }
+    public float Price { get; set; }
+    public int Quantity { get; set; }
+
+    public ShopItem(string itemName, float price, int quantity)
+    {
+        ItemName = itemName;
+        Price = price;
+        Quantity = quantity;
+    }
+}
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AnimatedWalk))]
@@ -13,7 +29,12 @@ public class Character_Control : MonoBehaviour
     private bool isGrounded;
     private AnimatedWalk animatedWalk;
     private bool isMoving = false;
+    public float TotalMoney { get; private set; }
+    public int Hearts { get; private set; }
+    public List<string> Inventory { get; private set; }
+    public float Expenses { get; private set; }
 
+    // Move Part
     private void Awake()
     {
         this.animatedWalk = GetComponent<AnimatedWalk>();
