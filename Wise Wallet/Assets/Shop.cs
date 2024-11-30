@@ -6,89 +6,73 @@ public class Shop : MonoBehaviour
     [System.Serializable]
     public class ShopItem
     {
-        public string Name;           // ชื่อสินค้า
-        public float Price;           // ราคาสินค้า
-        public int Quantity = 10;     // จำนวนสินค้า
-        public GameObject RelatedObject; // GameObject ที่เกี่ยวข้องกับสินค้า (เช่น ปุ่มใน UI)
+        public string Name;               // ชื่อของสินค้า
+        public float Price;               // ราคา
+        public GameObject RelatedObject;  // GameObject ที่เกี่ยวข้องกับสินค้า
+        public Sprite ItemIcon;           // ไอคอนของสินค้า
 
-        public ShopItem(string name, float price, int quantity = 10, GameObject relatedObject = null)
+        public ShopItem(string name, float price, GameObject relatedObject = null, Sprite itemIcon = null)
         {
             Name = name;
             Price = price;
-            Quantity = quantity;
             RelatedObject = relatedObject;
+            ItemIcon = itemIcon;
         }
     }
 
     [Header("Shop Settings")]
-    public string ShopName;             // ชื่อร้านค้า
-    [SerializeField] private List<ShopItem> items; // รายการสินค้าของร้าน
+    public string ShopName;                   // ชื่อร้าน
+    [SerializeField] private List<ShopItem> items = new List<ShopItem>(); // รายการสินค้าที่ขายในร้าน
 
-    // Display all items in the shop (for debugging)
-    public void DisplayItems()
-    {
-        Debug.Log($"Items in {ShopName}:");
-        foreach (var item in items)
-        {
-            Debug.Log($"{item.Name} - {item.Price} - Quantity: {item.Quantity}");
-        }
-    }
+    public Inventory inventory;  // Reference to Inventory
+    [SerializeField] public float playerMoney = 1000f;  // ตัวแปรเงินของผู้เล่น
 
-    // Get a ShopItem by name
+    // Get ShopItem โดยใช้ชื่อสินค้า
     public ShopItem GetItem(string itemName)
     {
         return items.Find(item => item.Name == itemName);
     }
 
-    // Remove items from the shop's inventory
-    public void RemoveItem(string itemName, int quantity)
+    // ฟังก์ชั่นสำหรับการซื้อสินค้า
+    public void BuyItem(string itemName)
     {
-        ShopItem item = GetItem(itemName);
-        if (item != null && item.Quantity >= quantity)
+        // ตรวจสอบว่า Inventory ถูกตั้งค่าแล้ว
+        if (inventory == null)
         {
-            item.Quantity -= quantity;
-            if (item.Quantity <= 0)
-                items.Remove(item);
+            Debug.LogError("Inventory reference is not assigned in the Shop!");
+            return;
         }
-    }
 
-    // Add item to the shop
-    public void AddItem(string itemName, float price, int quantity = 10, GameObject relatedObject = null)
-    {
-        ShopItem item = GetItem(itemName);
-        if (item != null)
+        ShopItem item = GetItem(itemName);  // ดึงข้อมูลสินค้า
+
+        if (item != null && playerMoney >= item.Price)
         {
-            item.Quantity += quantity; // Add more if the item already exists
+            playerMoney -= item.Price;  // ลดเงินของผู้เล่น
+            inventory.AddItemFromShop(item); // เพิ่มสินค้าใน Inventory
+
+            // สร้าง Prefab ของ Item ใน Inventory Panel
+            GameObject newItem = Instantiate(inventory.itemPrefab, inventory.displayContainer);
+            InventoryItemDisplay itemDisplay = newItem.GetComponent<InventoryItemDisplay>();
+
+            if (itemDisplay != null)
+            {
+                // ตั้งค่าข้อมูลสินค้าใน Inventory
+                // ใช้ ToString("0.00") เพื่อให้แสดงเป็นตัวเลขโดยไม่ต้องการสัญลักษณ์เงิน
+                itemDisplay.SetItem(item.Name, float.Parse(item.Price.ToString("F0")), item.ItemIcon, null);  // ไม่ใช้ PriceObject
+            }
+
+            Debug.Log($"Player bought item: {itemName}. Remaining money: {playerMoney}");
         }
         else
         {
-            items.Add(new ShopItem(itemName, price, quantity, relatedObject)); // Add new item
+            Debug.LogWarning("Not enough money or item not found!");
         }
     }
 
-    // Check if player can purchase an item (based on their money)
-    public bool CanPlayerBuyItem(string itemName, float playerMoney)
+    // เพิ่มรายการสินค้าในร้าน
+    public void AddItem(string name, float price, GameObject relatedObject, Sprite itemIcon)
     {
-        ShopItem item = GetItem(itemName);
-        return item != null && playerMoney >= item.Price;
-    }
-
-    // Buy item from the shop
-    public bool BuyItem(string itemName, int quantity, ref float playerMoney)
-    {
-        ShopItem item = GetItem(itemName);
-        if (item != null && item.Quantity >= quantity && playerMoney >= item.Price * quantity)
-        {
-            playerMoney -= item.Price * quantity;
-            RemoveItem(itemName, quantity);
-            return true;
-        }
-        return false;
-    }
-
-    // Return all items (used for linking with Mission.cs)
-    public List<ShopItem> GetAllItems()
-    {
-        return items;
+        ShopItem item = new ShopItem(name, price, relatedObject, itemIcon);
+        items.Add(item);
     }
 }
