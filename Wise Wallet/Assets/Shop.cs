@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour
             RelatedObject = relatedObject;
             ItemIcon = itemIcon;
         }
+
     }
 
     [Header("Shop Settings")]
@@ -25,7 +26,20 @@ public class Shop : MonoBehaviour
     [SerializeField] private List<ShopItem> items = new List<ShopItem>(); // รายการสินค้าที่ขายในร้าน
 
     public Inventory inventory;  // Reference to Inventory
+    [SerializeField] public PlayerStats playerStats;  // เชื่อมโยงกับ PlayerStats
     [SerializeField] public float playerMoney = 1000f;  // ตัวแปรเงินของผู้เล่น
+
+     private void Awake()
+    {
+        if (playerStats == null) // ตรวจสอบว่าถ้ายังไม่ได้ตั้งค่าใน Inspector
+        {
+            playerStats = FindObjectOfType<PlayerStats>(); // ค้นหาสคริปต์ PlayerStats ที่มีในซีน
+            if (playerStats == null)
+            {
+                Debug.LogError("PlayerStats not found in the scene!");
+            }
+        }
+    }
 
     // Get ShopItem โดยใช้ชื่อสินค้า
     public ShopItem GetItem(string itemName)
@@ -36,32 +50,38 @@ public class Shop : MonoBehaviour
     // ฟังก์ชั่นสำหรับการซื้อสินค้า
     public void BuyItem(string itemName)
     {
-        // ตรวจสอบว่า Inventory ถูกตั้งค่าแล้ว
+        // ตรวจสอบว่า Inventory และ PlayerStats ถูกตั้งค่าแล้ว
         if (inventory == null)
         {
             Debug.LogError("Inventory reference is not assigned in the Shop!");
             return;
         }
 
+        if (playerStats == null)
+        {
+            Debug.LogError("PlayerStats reference is not assigned in the Shop!");
+            return;
+        }
+
         ShopItem item = GetItem(itemName);  // ดึงข้อมูลสินค้า
 
-        if (item != null && playerMoney >= item.Price)
+        if (item != null && playerStats.TotalMoney >= item.Price)
         {
-            playerMoney -= item.Price;  // ลดเงินของผู้เล่น
-            inventory.AddItemFromShop(item); // เพิ่มสินค้าใน Inventory
-
-            // สร้าง Prefab ของ Item ใน Inventory Panel
-            GameObject newItem = Instantiate(inventory.itemPrefab, inventory.displayContainer);
-            InventoryItemDisplay itemDisplay = newItem.GetComponent<InventoryItemDisplay>();
-
-            if (itemDisplay != null)
+            // ใช้ฟังก์ชันของ PlayerStats ในการซื้อสินค้า
+            if (playerStats.BuyItemFromShop(this, itemName))
             {
-                // ตั้งค่าข้อมูลสินค้าใน Inventory
-                // ใช้ ToString("0.00") เพื่อให้แสดงเป็นตัวเลขโดยไม่ต้องการสัญลักษณ์เงิน
-                itemDisplay.SetItem(item.Name, float.Parse(item.Price.ToString("F0")), item.ItemIcon, null);  // ไม่ใช้ PriceObject
-            }
+                // เพิ่มสินค้าใน Inventory
+                inventory.AddItemFromShop(item);
 
-            Debug.Log($"Player bought item: {itemName}. Remaining money: {playerMoney}");
+                // สร้าง Prefab ของ Item ใน Inventory Panel
+                GameObject newItem = Instantiate(inventory.itemPrefab, inventory.displayContainer);
+                InventoryItemDisplay itemDisplay = newItem.GetComponent<InventoryItemDisplay>();
+
+                if (itemDisplay != null)
+                {
+                    // ตั้งค่าข้อมูลสินค้าใน Inventory
+                    itemDisplay.SetItem(item.Name, float.Parse(item.Price.ToString("F0")), item.ItemIcon, null);  // ไม่ใช้ PriceObject
+                }            }
         }
         else
         {

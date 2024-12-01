@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -72,5 +71,36 @@ public class PlayerStats : MonoBehaviour
     {
         return Inventory.ContainsKey(itemName) && Inventory[itemName] >= requiredQuantity;
     }
-}
 
+    public bool BuyItemFromShop(Shop shop, string itemName)
+    {
+        if (shop == null)
+        {
+            Debug.LogError("Shop reference is null!");
+            return false;
+        }
+
+        Shop.ShopItem item = shop.GetItem(itemName); // ดึงข้อมูลสินค้า
+        if (item == null)
+        {
+            Debug.LogWarning("Item not found in shop!");
+            return false;
+        }
+
+        // ตรวจสอบว่าเงินพอที่จะซื้อหรือไม่
+        if (TotalMoney >= item.Price)
+        {
+            TotalMoney -= item.Price; // หักเงินจากผู้เล่น
+            AddItem(item.Name); // เพิ่มสินค้าในคลัง
+
+
+            Debug.Log($"Bought {item.Name} for {item.Price}. Remaining money: {TotalMoney}");
+            return true;
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money!");
+            return false;
+        }
+    }
+}
