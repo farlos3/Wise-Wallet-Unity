@@ -23,11 +23,10 @@ public class Shop : MonoBehaviour
 
     [Header("Shop Settings")]
     public string ShopName;                   // ชื่อร้าน
-    [SerializeField] private List<ShopItem> items = new List<ShopItem>(); // รายการสินค้าที่ขายในร้าน
+    [SerializeField] public List<ShopItem> items = new List<ShopItem>(); // รายการสินค้าที่ขายในร้าน
 
     public Inventory inventory;  // Reference to Inventory
     [SerializeField] public PlayerStats playerStats;  // เชื่อมโยงกับ PlayerStats
-    [SerializeField] public float playerMoney = 1000f;  // ตัวแปรเงินของผู้เล่น
 
      private void Awake()
     {
