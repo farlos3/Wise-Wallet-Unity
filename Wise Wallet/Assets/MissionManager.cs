@@ -10,38 +10,30 @@ public class MissionManager : MonoBehaviour
         public string Name;
         public float Price;
         public Sprite Icon;
+        public Shop AssociatedShop;
         public int RequiredQuantity;
-
-        public MissionItem(string name,float price, Sprite icon, int requiredQuantity = 1)
-        {
-            Name = name;
-            Price = price;
-            Icon = icon;
-            RequiredQuantity = requiredQuantity;
-        }
     }
 
     [Header("Mission Settings")]
-    public GameObject missionPrefab; // Prefab สำหรับแสดงเป้าหมายภารกิจ
-    public Transform missionDisplayContainer; // จุดแสดงผลภารกิจในหน้าต่าง
-    public TMP_Text remainingMoneyText; // ช่องแสดงเงินที่ควรเหลือ
-    public TMP_Text expensesText; // ช่องแสดงเงินที่ใช้ไป
-    public GameObject missionCompleteMessage; // แสดงข้อความ "Mission Complete"
+    public GameObject missionPrefab;
+    public Transform missionDisplayContainer;
+    public TMP_Text remainingMoneyText;
+    public TMP_Text expensesText;
+    public GameObject missionCompleteMessage;
+    public Sprite checkmarkSprite; // รูปภาพ Checkmark ที่จะเปลี่ยนหลังจากตรวจสอบ
 
     [SerializeField]
-    private List<MissionItem> missionItems = new List<MissionItem>(); // รายการเป้าหมายภารกิจ
-    private Shop shop; // ตัวแปรเชื่อมกับ Shop
-    private PlayerStats playerStats; // ตัวแปรเชื่อมกับ PlayerStats
+    private List<MissionItem> missionItems = new List<MissionItem>();
+    private PlayerStats playerStats;
 
     private void Awake()
     {
-        missionCompleteMessage.SetActive(false); // ซ่อนข้อความ Mission Complete ตอนเริ่มเกม
-        shop = FindObjectOfType<Shop>();
-        playerStats = FindObjectOfType<PlayerStats>(); // เชื่อมโยงกับ PlayerStats
+        missionCompleteMessage.SetActive(false);
+        playerStats = FindObjectOfType<PlayerStats>();
 
-        if (shop == null)
+        if (playerStats == null)
         {
-            Debug.LogError("Shop is not found in the scene!");
+            Debug.LogError("PlayerStats is not found in the scene!");
         }
     }
 
@@ -51,7 +43,7 @@ public class MissionManager : MonoBehaviour
         UpdateMissionStatus();
     }
 
-    // สร้างรายการภารกิจ
+    // แสดงรายการภารกิจในหน้าจอ
     public void DisplayMissionItems()
     {
         foreach (var missionItem in missionItems)
@@ -62,23 +54,24 @@ public class MissionManager : MonoBehaviour
                 return;
             }
 
-            // ค้นหาข้อมูลสินค้าใน Shop
-            Shop.ShopItem item = shop.GetItem(missionItem.Name);
+            if (missionItem.AssociatedShop == null)
+            {
+                Debug.LogError($"Associated shop is not assigned for mission item: {missionItem.Name}");
+                continue;
+            }
+
+            Shop.ShopItem item = missionItem.AssociatedShop.GetItem(missionItem.Name);
             if (item == null)
             {
                 Debug.LogError($"Item not found in shop: {missionItem.Name}");
                 continue;
             }
 
-            // สร้าง Prefab ของ Mission Item และใส่ลงใน container
             GameObject missionObject = Instantiate(missionPrefab, missionDisplayContainer);
-
-            // ตั้งค่าข้อมูลใน MissionItemDisplay
             var missionDisplay = missionObject.GetComponent<MissionItemDisplay>();
             if (missionDisplay != null)
             {
-                // ส่งข้อมูลสินค้าไปที่ MissionItemDisplay
-                missionDisplay.SetMission(missionItem.Name,item.Price, missionItem.Icon);
+                missionDisplay.SetMission(missionItem.Name, item.Price, missionItem.Icon);
             }
             else
             {
@@ -87,8 +80,30 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    // ฟังก์ชันตรวจสอบการซื้อของ item
+    public void CheckBuyItem(string itemName)
+    {
+        foreach (var missionItem in missionItems)
+        {
+            if (missionItem.Name == itemName) // ชื่อตรงกับ Mission Item
+            {
+                foreach (Transform child in missionDisplayContainer)
+                {
+                    var missionDisplay = child.GetComponent<MissionItemDisplay>();
+                    if (missionDisplay != null && missionDisplay.itemNameText.text == itemName)
+                    {
+                        missionDisplay.MarkAsCompleted(checkmarkSprite); // เปลี่ยน Sprite เมื่อซื้อสำเร็จ
+                        Debug.Log($"Checkmark updated for item: {itemName}");
+                        return;
+                    }
+                }
+            }
+        }
 
-    // ตรวจสอบสถานะภารกิจ
+        Debug.Log($"Item {itemName} is not part of any mission.");
+    }
+
+    // อัปเดตสถานะของภารกิจทั้งหมด
     public void UpdateMissionStatus()
     {
         bool isMissionComplete = true;
@@ -104,7 +119,8 @@ public class MissionManager : MonoBehaviour
                     bool isPurchased = playerStats.HasItem(missionItem.Name, missionItem.RequiredQuantity);
                     if (isPurchased)
                     {
-                        missionDisplay.MarkAsCompleted();
+                        // ส่ง checkmarkSprite เข้าไปใน MarkAsCompleted
+                        missionDisplay.MarkAsCompleted(checkmarkSprite);
                     }
                     else
                     {
