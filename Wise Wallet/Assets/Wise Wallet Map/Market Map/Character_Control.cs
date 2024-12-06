@@ -131,4 +131,30 @@ public class Character_Control : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, this.groundLayer);
         isGrounded = hit.collider != null;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Button")) // ตรวจสอบว่าชนกับปุ่มที่มี Tag "Button"
+        {
+            Debug.Log("Character activated the button by walking through!");
+            ButtonAction buttonAction = other.GetComponent<ButtonAction>();
+            if (buttonAction != null)
+            {
+                buttonAction.Activate(); // เรียกฟังก์ชันทำงานของปุ่ม
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // ตรวจสอบว่าตัวละครออกจากปุ่ม
+        if (collision.CompareTag("Button"))
+        {
+            ButtonAction buttonAction = collision.GetComponent<ButtonAction>();
+            if (buttonAction != null)
+            {
+                buttonAction.Deactivate(); // ปิดเอฟเฟกต์เมื่อออกจากปุ่ม
+            }
+        }
+    }
 }

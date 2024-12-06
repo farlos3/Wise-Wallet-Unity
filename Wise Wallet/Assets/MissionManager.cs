@@ -83,6 +83,8 @@ public class MissionManager : MonoBehaviour
     // ฟังก์ชันตรวจสอบการซื้อของ item
     public void CheckBuyItem(string itemName)
     {
+        bool missionCompleted = false;
+
         foreach (var missionItem in missionItems)
         {
             if (missionItem.Name == itemName) // ชื่อตรงกับ Mission Item
@@ -94,20 +96,28 @@ public class MissionManager : MonoBehaviour
                     {
                         missionDisplay.MarkAsCompleted(checkmarkSprite); // เปลี่ยน Sprite เมื่อซื้อสำเร็จ
                         Debug.Log($"Checkmark updated for item: {itemName}");
-                        return;
+                        missionCompleted = true; // เมื่อซื้อสำเร็จ
+                        break; // ออกจาก loop
                     }
                 }
             }
         }
 
-        Debug.Log($"Item {itemName} is not part of any mission.");
+        if (missionCompleted)
+        {
+            UpdateMissionStatus(); // อัปเดตสถานะภารกิจหลังจากซื้อสำเร็จ
+        }
+        else
+        {
+            Debug.Log($"Item {itemName} is not part of any mission.");
+        }
     }
 
-    // อัปเดตสถานะของภารกิจทั้งหมด
     public void UpdateMissionStatus()
     {
         bool isMissionComplete = true;
 
+        // ตรวจสอบสถานะของภารกิจทั้งหมด
         foreach (Transform child in missionDisplayContainer)
         {
             var missionDisplay = child.GetComponent<MissionItemDisplay>();
@@ -124,25 +134,34 @@ public class MissionManager : MonoBehaviour
                     }
                     else
                     {
-                        isMissionComplete = false;
+                        isMissionComplete = false; // ถ้าไม่ครบให้ตั้งค่าภารกิจไม่เสร็จ
                     }
                 }
             }
         }
 
+        // หากภารกิจทั้งหมดเสร็จสมบูรณ์
         if (isMissionComplete)
         {
-            missionCompleteMessage.SetActive(true);
+            missionCompleteMessage.SetActive(true); // แสดงข้อความว่า "Mission Complete"
+        }
+        else
+        {
+            missionCompleteMessage.SetActive(false); // ถ้ายังไม่เสร็จ จะซ่อนข้อความ
         }
 
+        // แสดงข้อมูลเงินที่เหลือ
         if (remainingMoneyText != null)
         {
             remainingMoneyText.text = "Remaining Money: " + playerStats.RemaninMoney.ToString("F0");
         }
 
+        // แสดงข้อมูลค่าใช้จ่าย
         if (expensesText != null)
         {
             expensesText.text = "Expenses: " + playerStats.Expenses.ToString("F0");
         }
     }
+
+
 }
