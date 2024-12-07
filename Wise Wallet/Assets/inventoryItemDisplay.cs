@@ -55,7 +55,7 @@ public class InventoryItemDisplay : MonoBehaviour
         Debug.Log($"SetItem called for: {name} with price: {price} and icon: {icon?.name}");
     }
 
-    // Function to hide price if needed
+    // ปิดการแสดงผลของราคาสินค้าโดยซ่อน itemPriceObject
     public void HidePrice()
     {
         if (itemPriceObject != null)
