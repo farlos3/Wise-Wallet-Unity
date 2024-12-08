@@ -157,4 +157,17 @@ public class Character_Control : MonoBehaviour
             }
         }
     }
+
+    private void AttemptToBuyShop(Shopbuy shop)
+    {
+        if (shop.TryPurchaseShop(TotalMoney, out float remainingMoney))
+        {
+            TotalMoney = remainingMoney; // อัปเดตเงินของผู้เล่น
+            Debug.Log($"Shop {shop.shopName} purchased! Remaining money: {TotalMoney}");
+        }
+        else
+        {
+            Debug.Log($"Failed to purchase {shop.shopName}. Check ownership or available funds.");
+        }
+    }
 }
