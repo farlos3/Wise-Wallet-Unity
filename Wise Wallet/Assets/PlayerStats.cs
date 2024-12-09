@@ -8,7 +8,6 @@ public class PlayerStats : MonoBehaviour
     [Header("Money Settings")]
     public float startingMoney; // เงินเริ่มต้น
     public float remainmoney;
-
     public float TotalMoney { get; private set; } // เงินที่ผู้เล่นมีในปัจจุบัน
     public float RemaninMoney { get; private set; }
 
@@ -20,19 +19,11 @@ public class PlayerStats : MonoBehaviour
     public float Expenses { get; private set; } = 0f;
     public Dictionary<string, int> Inventory { get; private set; }
 
-    private Managernpc managerNpc; // อ้างอิงถึงตัว Managernpc
-
     private void Awake()
     {
         Inventory = new Dictionary<string, int>();
         TotalMoney = startingMoney; // ตั้งค่าเงินเริ่มต้นจาก Inspector
         RemaninMoney = remainmoney;
-
-        managerNpc = FindObjectOfType<Managernpc>(); // หา Managernpc component
-        if (managerNpc == null)
-        {
-            Debug.LogError("Managernpc component not found!");
-        }
     }
 
     private void Start()
@@ -72,7 +63,7 @@ public class PlayerStats : MonoBehaviour
         {
             TotalMoney -= amount;
             Expenses += amount;
-            UpdateMoneyDisplay(); // อัปเดตการแสดงผลเงิน
+            UpdateMoneyDisplay();
             UpdateExpensesDisplay();
             return true;
         }
@@ -162,12 +153,16 @@ public class PlayerStats : MonoBehaviour
         return Inventory.ContainsKey(itemName) && Inventory[itemName] >= requiredQuantity;
     }
 
-    // ฟังก์ชันล้าง Order Panel
-    public void ClearOrderPanel()
+    public bool BuyShop(string shopName, float shopPrice)
     {
-        if (managerNpc != null)
+        if (TotalMoney >= shopPrice)
         {
-            managerNpc.ClearOrderPanel();
+            SpendMoney(shopPrice);
+            Debug.Log($"You are now the owner of {shopName}!");
+            return true;
         }
+        Debug.LogWarning("Not enough money to buy the shop!");
+        return false;
     }
+
 }

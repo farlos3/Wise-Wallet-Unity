@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// สำหรับคลาส ShopItem ถ้าอยู่ในไฟล์นี้
-public class ShopItem
+
+public class OwnerShopItem
 {
     public string ItemName { get; set; }
     public float Price { get; set; }
     public int Quantity { get; set; }
 
-    public ShopItem(string itemName, float price, int quantity)
+    public OwnerShopItem(string itemName, float price, int quantity)
     {
         ItemName = itemName;
         Price = price;
@@ -158,16 +158,4 @@ public class Character_Control : MonoBehaviour
         }
     }
 
-    private void AttemptToBuyShop(Shopbuy shop)
-    {
-        if (shop.TryPurchaseShop(TotalMoney, out float remainingMoney))
-        {
-            TotalMoney = remainingMoney; // อัปเดตเงินของผู้เล่น
-            Debug.Log($"Shop {shop.shopName} purchased! Remaining money: {TotalMoney}");
-        }
-        else
-        {
-            Debug.Log($"Failed to purchase {shop.shopName}. Check ownership or available funds.");
-        }
-    }
 }
