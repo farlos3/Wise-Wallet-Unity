@@ -1,91 +1,108 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NpcManager : MonoBehaviour
 {
-    public List<OwnerShop> allShops; // รายการร้านค้าทั้งหมดใน Scene
-    public Transform displayArea; // บริเวณที่จะแสดง Prefab
-    public GameObject itemPrefab; // Prefab ที่จะใช้ในการแสดงผล (ต้องมี NpcDisplay)
+    // ลิสต์ชื่อร้านที่ NPC สามารถเลือกได้
+    public List<string> shopNames; // ชื่อร้านที่ต้องการใช้
+    public Transform itemImageTransform1; // ตำแหน่งรูปภาพสินค้า 1
+    public Transform itemImageTransform2; // ตำแหน่งรูปภาพสินค้า 2
+    public Transform itemImageTransform3; // ตำแหน่งรูปภาพสินค้า 3
+
+
+    private Dictionary<string, OwnerShop> ownerShops = new Dictionary<string, OwnerShop>();
 
     private void Start()
     {
-        // ค้นหา OwnerShop ทั้งหมดใน Scene ถ้าไม่ตั้งค่าใน Inspector
-        if (allShops == null || allShops.Count == 0)
+        // เก็บ OwnerShop ทั้งหมดในฉากที่มีชื่อร้านตรงกับ shopNames
+        OwnerShop[] shopsInScene = FindObjectsOfType<OwnerShop>();
+        foreach (OwnerShop shop in shopsInScene)
         {
-            allShops = new List<OwnerShop>(FindObjectsOfType<OwnerShop>());
-            if (allShops.Count == 0)
+            if (shopNames.Contains(shop.ShopName))
             {
-                Debug.LogError("No OwnerShop components found in the scene!");
+                ownerShops[shop.ShopName] = shop; // เก็บข้อมูลร้านใน Dictionary โดยใช้ชื่อร้านเป็น key
+            }
+        }
+
+        // หากไม่มีร้านใน Dictionary จะมีการแจ้งเตือน
+        if (ownerShops.Count == 0)
+        {
+            Debug.LogError("ไม่พบร้านที่ตรงกับชื่อที่ระบุใน shopNames");
+        }
+    }
+
+    // ฟังก์ชันสุ่มสินค้าจากร้านค้าที่เลือก
+    public void GetItemToRandom()
+    {
+        foreach (string shopName in shopNames) // วนลูปไปตามชื่อร้านที่กรอกใน shopNames
+        {
+            // ค้นหาร้านจากชื่อร้านที่ตรงกับ GameObject ในฉาก
+            GameObject shopGameObject = GameObject.Find(shopName);
+
+            if (shopGameObject != null)
+            {
+                OwnerShop ownerShop = shopGameObject.GetComponent<OwnerShop>();
+                if (ownerShop != null)
+                {
+                    // สุ่มสินค้าจากร้านที่พบ
+                    List<ShopItem> randomItems = new List<ShopItem>();
+                    if (ownerShop.ShopItems.Count > 0)
+                    {
+                        List<int> selectedIndices = new List<int>();
+                        while (selectedIndices.Count < 3)
+                        {
+                            int randomIndex = Random.Range(0, ownerShop.ShopItems.Count);
+                            if (!selectedIndices.Contains(randomIndex))
+                            {
+                                selectedIndices.Add(randomIndex);
+                                randomItems.Add(ownerShop.ShopItems[randomIndex]);
+                            }
+                        }
+
+                        // อัปเดตภาพใน Transform ที่เกี่ยวข้อง
+                        UpdateImageInTransform(itemImageTransform1, randomItems[0].ItemImage);
+                        UpdateImageInTransform(itemImageTransform2, randomItems[1].ItemImage);
+                        UpdateImageInTransform(itemImageTransform3, randomItems[2].ItemImage);
+                    }
+                    else
+                    {
+                        Debug.Log($"ร้าน {shopName} ไม่มีสินค้าครับ");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"ไม่พบ OwnerShop ในร้าน: {shopName}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"ไม่พบ GameObject ที่มีชื่อ {shopName}");
             }
         }
     }
 
-    // ฟังก์ชันค้นหาร้านค้าและสุ่มไอเท็ม
-    public void GetItemsFromShop(string shopName)
+
+    // ฟังก์ชันที่จะอัปเดตรูปภาพใน Transform ที่ระบุ
+    private void UpdateImageInTransform(Transform itemTransform, Sprite newImage)
     {
-        if (itemPrefab == null)
+        if (itemTransform != null)
         {
-            Debug.LogError("Item Prefab is not assigned!");
-            return;
-        }
-
-        // ตรวจสอบว่า Prefab มี NpcDisplay อยู่หรือไม่
-        NpcDisplay npcDisplay = itemPrefab.GetComponent<NpcDisplay>();
-        if (npcDisplay == null)
-        {
-            Debug.LogError("Prefab does not contain an NpcDisplay component!");
-            return;
-        }
-
-        // ค้นหาร้านค้าด้วยชื่อ
-        OwnerShop targetShop = allShops.Find(shop => shop.ShopName == shopName);
-
-        if (targetShop == null)
-        {
-            Debug.LogWarning($"Shop with name {shopName} not found!");
-            return;
-        }
-
-        // แสดงข้อมูลไอเท็มในร้านค้า
-        Debug.Log($"Items in shop {shopName}:");
-        foreach (ShopItem item in targetShop.ShopItems)
-        {
-            Debug.Log($"- ItemName: {item.ItemName}, ItemID: {item.ItemID}, ItemPrice: {item.ItemPrice}, ItemImage: {item.ItemImage.name}");
-        }
-
-        // สุ่มไอเท็ม 3 ชิ้นโดยไม่ซ้ำกัน
-        if (targetShop.ShopItems.Count >= 3)
-        {
-            List<ShopItem> randomItems = new List<ShopItem>();
-            List<int> usedIndices = new List<int>();
-
-            while (randomItems.Count < 3)
+            // ค้นหา Image component ใน Transform
+            Image imageComponent = itemTransform.GetComponent<Image>();
+            if (imageComponent != null)
             {
-                int randomIndex = Random.Range(0, targetShop.ShopItems.Count);
-                if (!usedIndices.Contains(randomIndex))
-                {
-                    usedIndices.Add(randomIndex);
-                    randomItems.Add(targetShop.ShopItems[randomIndex]);
-                }
+                Debug.Log($"Updating Sprite: {newImage.name}"); // ตรวจสอบชื่อ Sprite
+                imageComponent.sprite = newImage;  // เปลี่ยนรูปภาพ
             }
-
-            // สร้าง Prefab ในพื้นที่ Display Area
-            foreach (ShopItem item in randomItems)
+            else
             {
-                GameObject newDisplay = Instantiate(itemPrefab, displayArea);
-                NpcDisplay display = newDisplay.GetComponent<NpcDisplay>();
-
-                if (display != null)
-                {
-                    // อัปเดตข้อมูลใน NpcDisplay
-                    display.UpdateDisplay(item.ItemID, item.ItemImage);
-                }
+                Debug.LogError("Image component not found in the Transform!");
             }
         }
         else
         {
-            Debug.LogWarning($"Shop {shopName} does not have enough items to perform a random selection!");
+            Debug.LogError("Transform is null!");
         }
     }
 }

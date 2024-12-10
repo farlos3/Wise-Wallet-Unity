@@ -3,25 +3,28 @@ using UnityEngine.UI;
 
 public class NpcDisplay : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public Image itemImage; // รูปภาพของสินค้า
+    // ฟิลด์สำหรับ GameObject ที่จะใช้เปลี่ยนรูปภาพ
+    public Image itemImage1;  // สำหรับรูปภาพของสินค้า 1
+    public Image itemImage2;  // สำหรับรูปภาพของสินค้า 2
+    public Image itemImage3;  // สำหรับรูปภาพของสินค้า 3
 
-    public void UpdateDisplay(string itemID, Sprite itemImage)
+    // ฟังก์ชัน UpdateDisplay ที่จะรับข้อมูลและอัปเดตภาพ
+    public void UpdateDisplay(Sprite itemImage1Sprite, Sprite itemImage2Sprite, Sprite itemImage3Sprite)
     {
-        if (itemImage != null)
+        // เปลี่ยนรูปภาพในแต่ละตำแหน่ง
+        if (itemImage1 != null)
         {
-            // แสดงข้อความใน Console เพื่อ Debug
-            Debug.Log($"Updating NPC Display with ItemID: {itemID}, ItemImage: {itemImage.name}");
-
-            // เปลี่ยนรูปภาพใน UI
-            if (this.itemImage != null)
-            {
-                this.itemImage.sprite = itemImage;
-            }
+            itemImage1.sprite = itemImage1Sprite;  // เปลี่ยนรูปภาพของสินค้าที่ 1
         }
-        else
+        
+        if (itemImage2 != null)
         {
-            Debug.LogWarning($"ItemImage is null for ItemID: {itemID}!");
+            itemImage2.sprite = itemImage2Sprite;  // เปลี่ยนรูปภาพของสินค้าที่ 2
+        }
+        
+        if (itemImage3 != null)
+        {
+            itemImage3.sprite = itemImage3Sprite;  // เปลี่ยนรูปภาพของสินค้าที่ 3
         }
     }
 }
