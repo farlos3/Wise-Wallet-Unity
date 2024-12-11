@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class CharacterSelector : MonoBehaviour
 {
     public GameObject[] characters;
-    public Button[] characterButtons;
+    public Button[] characterButtons; 
     private string selectedCharacterKey = "SelectedCharacter";
 
     void Start()
@@ -22,6 +22,7 @@ public class CharacterSelector : MonoBehaviour
             return;
         }
 
+        // ผูกปุ่มกับฟังก์ชัน SelectCharacter
         for (int i = 0; i < characters.Length; i++)
         {
             int index = i;
@@ -37,7 +38,8 @@ public class CharacterSelector : MonoBehaviour
             PlayerPrefs.Save();
             Debug.Log($"Selected character: {characters[characterIndex].name}");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            // โหลด Scene ถัดไป
+            SceneManager.LoadScene("NextSceneName"); // เปลี่ยนเป็นชื่อ Scene ของคุณ
         }
         else
         {
