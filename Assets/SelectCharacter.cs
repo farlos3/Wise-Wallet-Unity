@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharacterSelector : MonoBehaviour
-public class CharacterSelector : MonoBehaviour
 {
     public GameObject[] characters;
     public Button[] characterButtons;
@@ -42,17 +41,7 @@ public class CharacterSelector : MonoBehaviour
         }
         else
         {
-        Debug.LogError("Invalid character index!");
+            Debug.LogError("Invalid character index!");
         }
-    }
-
-    public GameObject GetSelectedCharacter()
-    {
-        if (selectedCharacterIndex >= 0 && selectedCharacterIndex < characters.Length)
-        {
-            return characters[selectedCharacterIndex];
-        }
-
-        return null; // หากไม่มีตัวละครที่เลือก
     }
 }
