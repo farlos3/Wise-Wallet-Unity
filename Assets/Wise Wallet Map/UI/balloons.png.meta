@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/balloons.png.meta
 guid: 26553f00da1926647b72d2679d8d585e
+=======
+guid: e383579fae4908b41ba7a346201b12cd
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/balloons.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,6 +110,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/balloons.png.meta
+=======
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/balloons.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Button
+  - Background
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -35,12 +38,13 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Ground
   - BackGround
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD:ProjectSettings/TagManager.asset
   - name: background
     uniqueID: 2409302875
     locked: 0
@@ -49,4 +53,14 @@ TagManager:
     locked: 0
   - name: button
     uniqueID: 4249254731
+=======
+  - name: UI
+    uniqueID: 2099357389
+    locked: 0
+  - name: Character
+    uniqueID: 1516767587
+    locked: 0
+  - name: Panel
+    uniqueID: 4090508427
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/ProjectSettings/TagManager.asset
     locked: 0

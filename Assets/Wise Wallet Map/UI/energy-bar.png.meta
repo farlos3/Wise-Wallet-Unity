@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/energy-bar.png.meta
 guid: beec28cdc6f71a9419c2d9568d58850b
+=======
+guid: 1bf64bf5c76ab934e9478bbf6337e3d1
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/energy-bar.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,6 +110,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/energy-bar.png.meta
+=======
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/energy-bar.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

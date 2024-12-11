@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/pet-food.png.meta
 guid: 52e8733608c635648b7daf8d43ed8233
+=======
+guid: 2c9547a0b6b838c4f959ace67b1d28f9
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/pet-food.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,6 +110,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Wise Wallet Map/UI/pet-food.png.meta
+=======
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/UI/pet-food.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

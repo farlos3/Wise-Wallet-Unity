@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// สำหรับคลาส ShopItem ถ้าอยู่ในไฟล์นี้
-public class ShopItem
+
+public class OwnerShopItem
 {
     public string ItemName { get; set; }
     public float Price { get; set; }
     public int Quantity { get; set; }
 
-    public ShopItem(string itemName, float price, int quantity)
+    public OwnerShopItem(string itemName, float price, int quantity)
     {
         ItemName = itemName;
         Price = price;
@@ -131,4 +131,31 @@ public class Character_Control : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, this.groundLayer);
         isGrounded = hit.collider != null;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Button")) // ตรวจสอบว่าชนกับปุ่มที่มี Tag "Button"
+        {
+            Debug.Log("Character activated the button by walking through!");
+            ButtonAction buttonAction = other.GetComponent<ButtonAction>();
+            if (buttonAction != null)
+            {
+                buttonAction.Activate(); // เรียกฟังก์ชันทำงานของปุ่ม
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // ตรวจสอบว่าตัวละครออกจากปุ่ม
+        if (collision.CompareTag("Button"))
+        {
+            ButtonAction buttonAction = collision.GetComponent<ButtonAction>();
+            if (buttonAction != null)
+            {
+                buttonAction.Deactivate(); // ปิดเอฟเฟกต์เมื่อออกจากปุ่ม
+            }
+        }
+    }
+
 }

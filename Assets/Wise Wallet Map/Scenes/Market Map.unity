@@ -2237,7 +2237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 58655975a05b35d4e825c19c13da70c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4659,10 +4659,10 @@ RectTransform:
   - {fileID: 1098275597}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: 150}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288607069
 MonoBehaviour:
@@ -5319,10 +5319,10 @@ RectTransform:
   - {fileID: 976254955}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -250, y: -250}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331526643
 MonoBehaviour:
@@ -9629,10 +9629,10 @@ RectTransform:
   - {fileID: 91748729}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652427676
 MonoBehaviour:
@@ -10802,6 +10802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044603e95ed7f58419dffe0c78ff0475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Wise Wallet Map/Scenes/Market Map.unity
+=======
+  effect: {fileID: 1889694273}
+  buttonSound: {fileID: 0}
+  objectToScale: {fileID: 744219649}
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/Scenes/Market Map.unity
 --- !u!1 &745335980
 GameObject:
   m_ObjectHideFlags: 0
@@ -11316,10 +11322,10 @@ RectTransform:
   - {fileID: 42710019}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -250, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &793115966
 MonoBehaviour:
@@ -12656,10 +12662,10 @@ RectTransform:
   - {fileID: 1262362600}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -250}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995947558
 MonoBehaviour:
@@ -13957,10 +13963,17 @@ RectTransform:
   - {fileID: 647173897}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Wise Wallet Map/Scenes/Market Map.unity
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 350, y: 150}
   m_SizeDelta: {x: 100, y: 100}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/Scenes/Market Map.unity
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096082765
 MonoBehaviour:
@@ -16057,6 +16070,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044603e95ed7f58419dffe0c78ff0475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Wise Wallet Map/Scenes/Market Map.unity
+=======
+  effect: {fileID: 2112239652}
+  buttonSound: {fileID: 0}
+  objectToScale: {fileID: 1256211673}
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/Scenes/Market Map.unity
 --- !u!1 &1257244920
 GameObject:
   m_ObjectHideFlags: 0
@@ -16337,6 +16356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044603e95ed7f58419dffe0c78ff0475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Wise Wallet Map/Scenes/Market Map.unity
+=======
+  effect: {fileID: 1059463856}
+  buttonSound: {fileID: 0}
+  objectToScale: {fileID: 1261106137}
+>>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/Wise Wallet Map/Scenes/Market Map.unity
 --- !u!1 &1262362599
 GameObject:
   m_ObjectHideFlags: 0
@@ -17368,10 +17393,10 @@ RectTransform:
   - {fileID: 1422665224}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381955158
 MonoBehaviour:
@@ -21810,10 +21835,10 @@ RectTransform:
   - {fileID: 1961692881}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -250, y: 150}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664137287
 MonoBehaviour:
@@ -24636,10 +24661,10 @@ RectTransform:
   - {fileID: 1092519522}
   m_Father: {fileID: 1067950459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -250}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905431849
 MonoBehaviour:
@@ -27761,7 +27786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2112239653
 RectTransform:
   m_ObjectHideFlags: 0
