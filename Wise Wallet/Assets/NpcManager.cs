@@ -4,105 +4,105 @@ using UnityEngine.UI;
 
 public class NpcManager : MonoBehaviour
 {
-    // ลิสต์ชื่อร้านที่ NPC สามารถเลือกได้
-    public List<string> shopNames; // ชื่อร้านที่ต้องการใช้
-    public Transform itemImageTransform1; // ตำแหน่งรูปภาพสินค้า 1
-    public Transform itemImageTransform2; // ตำแหน่งรูปภาพสินค้า 2
-    public Transform itemImageTransform3; // ตำแหน่งรูปภาพสินค้า 3
+    private List<ShopItem> itemsFromShop = new List<ShopItem>();
 
+    [Header("UI References")]
+    [SerializeField] private Image position1;
+    [SerializeField] private Image position2;
+    [SerializeField] private Image position3;
 
-    private Dictionary<string, OwnerShop> ownerShops = new Dictionary<string, OwnerShop>();
-
-    private void Start()
+    public void GetItemFromShop(string shopName)
     {
-        // เก็บ OwnerShop ทั้งหมดในฉากที่มีชื่อร้านตรงกับ shopNames
-        OwnerShop[] shopsInScene = FindObjectsOfType<OwnerShop>();
-        foreach (OwnerShop shop in shopsInScene)
+        OwnerShop selectedShop = System.Array.Find(FindObjectsOfType<OwnerShop>(), shop => shop.ShopName == shopName);
+
+        if (selectedShop == null)
         {
-            if (shopNames.Contains(shop.ShopName))
-            {
-                ownerShops[shop.ShopName] = shop; // เก็บข้อมูลร้านใน Dictionary โดยใช้ชื่อร้านเป็น key
-            }
+            Debug.LogError($"Shop with name '{shopName}' not found!");
+            return;
         }
 
-        // หากไม่มีร้านใน Dictionary จะมีการแจ้งเตือน
-        if (ownerShops.Count == 0)
+        itemsFromShop = new List<ShopItem>(selectedShop.ShopItems);
+        Debug.Log($"Retrieved {itemsFromShop.Count} items from {selectedShop.ShopName}.");
+    }
+
+    public void PrintItems()
+    {
+        foreach (var item in itemsFromShop)
         {
-            Debug.LogError("ไม่พบร้านที่ตรงกับชื่อที่ระบุใน shopNames");
+            Debug.Log($"Item Name: {item.ItemName}, Price: {item.ItemPrice}, ID: {item.ItemID}");
         }
     }
 
-    // ฟังก์ชันสุ่มสินค้าจากร้านค้าที่เลือก
-    public void GetItemToRandom()
+    public void RandomItem()
     {
-        foreach (string shopName in shopNames) // วนลูปไปตามชื่อร้านที่กรอกใน shopNames
+        if (itemsFromShop.Count < 3)
         {
-            // ค้นหาร้านจากชื่อร้านที่ตรงกับ GameObject ในฉาก
-            GameObject shopGameObject = GameObject.Find(shopName);
+            Debug.LogError("Not enough items in the shop to select 3 unique items.");
+            return;
+        }
 
-            if (shopGameObject != null)
-            {
-                OwnerShop ownerShop = shopGameObject.GetComponent<OwnerShop>();
-                if (ownerShop != null)
-                {
-                    // สุ่มสินค้าจากร้านที่พบ
-                    List<ShopItem> randomItems = new List<ShopItem>();
-                    if (ownerShop.ShopItems.Count > 0)
-                    {
-                        List<int> selectedIndices = new List<int>();
-                        while (selectedIndices.Count < 3)
-                        {
-                            int randomIndex = Random.Range(0, ownerShop.ShopItems.Count);
-                            if (!selectedIndices.Contains(randomIndex))
-                            {
-                                selectedIndices.Add(randomIndex);
-                                randomItems.Add(ownerShop.ShopItems[randomIndex]);
-                            }
-                        }
+        // Verify UI components are properly assigned
+        if (!VerifyUIComponents())
+        {
+            return;
+        }
 
-                        // อัปเดตภาพใน Transform ที่เกี่ยวข้อง
-                        UpdateImageInTransform(itemImageTransform1, randomItems[0].ItemImage);
-                        UpdateImageInTransform(itemImageTransform2, randomItems[1].ItemImage);
-                        UpdateImageInTransform(itemImageTransform3, randomItems[2].ItemImage);
-                    }
-                    else
-                    {
-                        Debug.Log($"ร้าน {shopName} ไม่มีสินค้าครับ");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning($"ไม่พบ OwnerShop ในร้าน: {shopName}");
-                }
-            }
-            else
+        List<ShopItem> randomItems = new List<ShopItem>();
+        List<int> selectedIndices = new List<int>();
+
+        // Select random items
+        while (randomItems.Count < 3)
+        {
+            int randomIndex = Random.Range(0, itemsFromShop.Count);
+            if (!selectedIndices.Contains(randomIndex))
             {
-                Debug.LogWarning($"ไม่พบ GameObject ที่มีชื่อ {shopName}");
+                selectedIndices.Add(randomIndex);
+                randomItems.Add(itemsFromShop[randomIndex]);
+                Debug.Log($"Selected item at index {randomIndex}: ID={itemsFromShop[randomIndex].ItemID}");
             }
         }
+
+        // Update UI Images
+        UpdateUIImage(position1, randomItems[0], 1);
+        UpdateUIImage(position2, randomItems[1], 2);
+        UpdateUIImage(position3, randomItems[2], 3);
     }
 
-
-    // ฟังก์ชันที่จะอัปเดตรูปภาพใน Transform ที่ระบุ
-    private void UpdateImageInTransform(Transform itemTransform, Sprite newImage)
+    private bool VerifyUIComponents()
     {
-        if (itemTransform != null)
+        if (position1 == null)
         {
-            // ค้นหา Image component ใน Transform
-            Image imageComponent = itemTransform.GetComponent<Image>();
-            if (imageComponent != null)
-            {
-                Debug.Log($"Updating Sprite: {newImage.name}"); // ตรวจสอบชื่อ Sprite
-                imageComponent.sprite = newImage;  // เปลี่ยนรูปภาพ
-            }
-            else
-            {
-                Debug.LogError("Image component not found in the Transform!");
-            }
+            Debug.LogError("Position1 Image component is not assigned!");
+            return false;
         }
-        else
+        if (position2 == null)
         {
-            Debug.LogError("Transform is null!");
+            Debug.LogError("Position2 Image component is not assigned!");
+            return false;
         }
+        if (position3 == null)
+        {
+            Debug.LogError("Position3 Image component is not assigned!");
+            return false;
+        }
+        return true;
+    }
+
+    private void UpdateUIImage(Image position, ShopItem item, int positionNumber)
+    {
+        if (item == null)
+        {
+            Debug.LogError($"Item for position {positionNumber} is null!");
+            return;
+        }
+
+        if (item.ItemImage == null)
+        {
+            Debug.LogError($"ItemImage is null for item ID: {item.ItemID} at position {positionNumber}");
+            return;
+        }
+
+        position.sprite = item.ItemImage;
+        Debug.Log($"Successfully updated position {positionNumber} with Item ID: {item.ItemID}");
     }
 }

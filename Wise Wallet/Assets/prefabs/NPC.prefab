@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7109780713134438459}
   - component: {fileID: 6510302135092805774}
   m_Layer: 0
-  m_Name: burger
+  m_Name: Position1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 6746982570983832817}
   - component: {fileID: 5979853238688256566}
   m_Layer: 0
-  m_Name: burger
+  m_Name: Position3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 9083199005002660805}
   - component: {fileID: 7757698456587381669}
   m_Layer: 0
-  m_Name: burger
+  m_Name: Position2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,8 +652,8 @@ GameObject:
   - component: {fileID: 3338080762993339238}
   - component: {fileID: 3591692742249966333}
   - component: {fileID: 5420872299181445112}
-  - component: {fileID: 514680292809171886}
   - component: {fileID: 8670433956207358034}
+  - component: {fileID: 2081209550994823771}
   m_Layer: 3
   m_Name: NPC
   m_TagString: NPC
@@ -847,25 +847,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.16, y: 4.54}
   m_EdgeRadius: 0
---- !u!114 &514680292809171886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8819784136965106111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d395c88cfcb7cb4782827bd4af6bca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopNames:
-  - popupmart
-  - popup pharmacy
-  - popuppet
-  itemImageTransform1: {fileID: 5703342352795318142}
-  itemImageTransform2: {fileID: 6402970417304610247}
-  itemImageTransform3: {fileID: 6783909341553747812}
 --- !u!114 &8670433956207358034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,4 +859,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a74a950b3de543900a5b0bb6def26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+--- !u!114 &2081209550994823771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819784136965106111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d395c88cfcb7cb4782827bd4af6bca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position1: {fileID: 7109780713134438459}
+  position2: {fileID: 9083199005002660805}
+  position3: {fileID: 6746982570983832817}

@@ -178,7 +178,6 @@ MonoBehaviour:
   displayArea: {fileID: 263493914}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
   npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
 --- !u!114 &31967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -530,7 +529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbbc6257f0990ef43a1e36c5bb1f9735, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2544,7 +2543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b70b0e3c04ab7f4ab29891191698144, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2648,6 +2647,30 @@ PrefabInstance:
     - target: {fileID: 1396493400843596409, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_Name
       value: saleprice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3337,7 +3360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c456d64fe595e0f49be8e0e58e337f64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3687,9 +3710,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Managernpc, Assembly-CSharp
-        m_MethodName: ClearOrderPanel
+      - m_Target: {fileID: 1459203161}
+        m_TargetAssemblyTypeName: CreateNpc, Assembly-CSharp
+        m_MethodName: CreateNpcAtGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4865,7 +4888,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5580,7 +5603,6 @@ MonoBehaviour:
   displayArea: {fileID: 2004474719}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
   npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
 --- !u!114 &305341479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7130,7 +7152,7 @@ GameObject:
   - component: {fileID: 423045634}
   - component: {fileID: 423045633}
   m_Layer: 0
-  m_Name: item
+  m_Name: med1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9055,7 +9077,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9205,7 +9227,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9336,6 +9358,26 @@ PrefabInstance:
     - target: {fileID: 1396493400843596409, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_Name
       value: saleprice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
@@ -9553,9 +9595,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 514680292809171886, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
+      - m_Target: {fileID: 546095457}
+        m_TargetAssemblyTypeName: CreateNpc, Assembly-CSharp
+        m_MethodName: CreateNpcAtGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: popupmart
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2081209550994823771, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
         m_TargetAssemblyTypeName: NpcManager, Assembly-CSharp
-        m_MethodName: GetItemToRandom
+        m_MethodName: GetItemFromShop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: wisemart
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2081209550994823771, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
+        m_TargetAssemblyTypeName: NpcManager, Assembly-CSharp
+        m_MethodName: PrintItems
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9565,16 +9631,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 546095457}
-        m_TargetAssemblyTypeName: CreateNpc, Assembly-CSharp
-        m_MethodName: CreateNpcForShop
-        m_Mode: 5
+      - m_Target: {fileID: 2081209550994823771, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
+        m_TargetAssemblyTypeName: NpcManager, Assembly-CSharp
+        m_MethodName: RandomItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: wisemart
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &546095454
@@ -9680,7 +9746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcPrefab: {fileID: 8819784136965106111, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
-  targetGameObject: {fileID: 0}
+  targetGameObject: {fileID: 844384420}
 --- !u!1001 &551346724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10404,7 +10470,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -13612,8 +13678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayArea: {fileID: 1076274609}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
-  npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 4224715366212055651, guid: ffba9fb28e31dc1428cd36cd051ba515, type: 3}
+  npcGameObject: {fileID: 8819784136965106111, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
 --- !u!1 &808214016
 GameObject:
   m_ObjectHideFlags: 0
@@ -13671,7 +13736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ee1410863c2d9e4c98240bb03a88c2f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14913,7 +14978,6 @@ MonoBehaviour:
   displayArea: {fileID: 1854685147}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
   npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
 --- !u!114 &889496601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15153,7 +15217,7 @@ GameObject:
   - component: {fileID: 942364074}
   - component: {fileID: 942364073}
   m_Layer: 0
-  m_Name: item (1)
+  m_Name: med4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17238,7 +17302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 657818ae049470245a6073a1692e34df, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17903,7 +17967,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -18040,7 +18104,7 @@ GameObject:
   - component: {fileID: 1116138656}
   - component: {fileID: 1116138655}
   m_Layer: 0
-  m_Name: item (4)
+  m_Name: med5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18378,6 +18442,26 @@ PrefabInstance:
     - target: {fileID: 1396493400843596409, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_Name
       value: saleprice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
@@ -19086,7 +19170,7 @@ GameObject:
   - component: {fileID: 1145307651}
   - component: {fileID: 1145307650}
   m_Layer: 0
-  m_Name: item (2)
+  m_Name: med2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20061,6 +20145,26 @@ PrefabInstance:
     - target: {fileID: 1396493400843596409, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_Name
       value: saleprice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
@@ -22017,7 +22121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73d9a722723572c45b8c75008fc680b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22308,6 +22412,7 @@ GameObject:
   - component: {fileID: 1325691893}
   - component: {fileID: 1325691892}
   - component: {fileID: 1325691891}
+  - component: {fileID: 1325691894}
   m_Layer: 0
   m_Name: popup pharmacy
   m_TagString: Untagged
@@ -22428,6 +22533,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325691889}
   m_CullTransparentMesh: 1
+--- !u!114 &1325691894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325691889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acebd34da040ef41b1d9de34cb2512b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShopName: pharmacy
+  ShopItems:
+  - ItemName: med1
+    ItemPrice: 20
+    ItemObject: {fileID: 423045631}
+    ItemImage: {fileID: 21300000, guid: 3ec729dd46098a347857e52a93866a97, type: 3}
+    ItemID: 1
+  - ItemName: med2
+    ItemPrice: 35
+    ItemObject: {fileID: 1145307648}
+    ItemImage: {fileID: 21300000, guid: 73d9a722723572c45b8c75008fc680b7, type: 3}
+    ItemID: 2
+  - ItemName: med3
+    ItemPrice: 24
+    ItemObject: {fileID: 2005415257}
+    ItemImage: {fileID: 21300000, guid: c456d64fe595e0f49be8e0e58e337f64, type: 3}
+    ItemID: 3
+  - ItemName: med4
+    ItemPrice: 27
+    ItemObject: {fileID: 942364071}
+    ItemImage: {fileID: 21300000, guid: 657818ae049470245a6073a1692e34df, type: 3}
+    ItemID: 4
+  - ItemName: med5
+    ItemPrice: 27
+    ItemObject: {fileID: 1116138653}
+    ItemImage: {fileID: 21300000, guid: 143b364de03df1244ac7ada323c50fbd, type: 3}
+    ItemID: 5
+  - ItemName: med6
+    ItemPrice: 45
+    ItemObject: {fileID: 1980738463}
+    ItemImage: {fileID: 21300000, guid: 9b70b0e3c04ab7f4ab29891191698144, type: 3}
+    ItemID: 6
+  - ItemName: med7
+    ItemPrice: 45
+    ItemObject: {fileID: 1428015587}
+    ItemImage: {fileID: 21300000, guid: 2dd4ed27e58b0fc4ba35582d09a845bf, type: 3}
+    ItemID: 7
+  - ItemName: med8
+    ItemPrice: 60
+    ItemObject: {fileID: 2058116599}
+    ItemImage: {fileID: 21300000, guid: cbbc6257f0990ef43a1e36c5bb1f9735, type: 3}
+    ItemID: 8
+  - ItemName: med9
+    ItemPrice: 34
+    ItemObject: {fileID: 1555486667}
+    ItemImage: {fileID: 21300000, guid: 6ee1410863c2d9e4c98240bb03a88c2f, type: 3}
+    ItemID: 9
+  ItemPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
+  playerStats: {fileID: 457951992}
 --- !u!1 &1326683970
 GameObject:
   m_ObjectHideFlags: 0
@@ -22529,7 +22695,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -23197,6 +23363,7 @@ GameObject:
   - component: {fileID: 1371440582}
   - component: {fileID: 1371440581}
   - component: {fileID: 1371440583}
+  - component: {fileID: 1371440584}
   m_Layer: 5
   m_Name: yesbtn
   m_TagString: Untagged
@@ -23305,9 +23472,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 805974083}
-        m_TargetAssemblyTypeName: OrderManager, Assembly-CSharp
-        m_MethodName: ClearPanel
+      - m_Target: {fileID: 546095457}
+        m_TargetAssemblyTypeName: CreateNpc, Assembly-CSharp
+        m_MethodName: CreateNpcAtGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23317,6 +23484,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1371440584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371440579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2295e78d3fa183488631ecf330b3ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIncorrect: {fileID: 4224715366212055651, guid: ffba9fb28e31dc1428cd36cd051ba515, type: 3}
 --- !u!224 &1372585036 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6006743631481564973, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
@@ -24514,7 +24694,7 @@ GameObject:
   - component: {fileID: 1428015590}
   - component: {fileID: 1428015589}
   m_Layer: 0
-  m_Name: item (6)
+  m_Name: med7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24989,6 +25169,7 @@ GameObject:
   - component: {fileID: 1459203159}
   - component: {fileID: 1459203158}
   - component: {fileID: 1459203157}
+  - component: {fileID: 1459203161}
   m_Layer: 5
   m_Name: buyshopbtn
   m_TagString: Button
@@ -25151,9 +25332,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 584791803}
-        m_TargetAssemblyTypeName: Shopbuy, Assembly-CSharp
+      - m_Target: {fileID: 1325691894}
+        m_TargetAssemblyTypeName: OwnerShop, Assembly-CSharp
         m_MethodName: BuyShop
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 4490
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1325691889}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 514680292809171886, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
+        m_TargetAssemblyTypeName: NpcManager, Assembly-CSharp
+        m_MethodName: GetItemToRandom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25163,6 +25368,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1459203161}
+        m_TargetAssemblyTypeName: CreateNpc, Assembly-CSharp
+        m_MethodName: CreateNpcAtGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1459203161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459203155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ca617b677d57848b567c3b2a370db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcPrefab: {fileID: 8819784136965106111, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
+  targetGameObject: {fileID: 844384420}
 --- !u!1 &1462320338
 GameObject:
   m_ObjectHideFlags: 0
@@ -26529,6 +26760,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: saleprice
       objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
       value: 12.37
@@ -26780,7 +27031,7 @@ GameObject:
   - component: {fileID: 1555486670}
   - component: {fileID: 1555486669}
   m_Layer: 0
-  m_Name: item (8)
+  m_Name: med9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29355,6 +29606,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: saleprice
       objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
       value: 12.37
@@ -30312,6 +30583,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: saleprice
       objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
       value: 12.37
@@ -31090,7 +31381,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -31872,7 +32163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ec729dd46098a347857e52a93866a97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31947,7 +32238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 143b364de03df1244ac7ada323c50fbd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34577,6 +34868,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: saleprice
       objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
       value: 12.37
@@ -35004,8 +35315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayArea: {fileID: 465182518}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
-  npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
+  npcGameObject: {fileID: 8819784136965106111, guid: 3f92fc842ddebe743b12c30aff2ab191, type: 3}
 --- !u!114 &1927903102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35261,7 +35571,6 @@ MonoBehaviour:
   displayArea: {fileID: 956699297}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
   npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
 --- !u!114 &1940293475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35392,7 +35701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8cf3210a65f682247a06e9c454d6ff05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2dd4ed27e58b0fc4ba35582d09a845bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36160,7 +36469,7 @@ GameObject:
   - component: {fileID: 1980738466}
   - component: {fileID: 1980738465}
   m_Layer: 0
-  m_Name: item (5)
+  m_Name: med6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36473,7 +36782,6 @@ MonoBehaviour:
   displayArea: {fileID: 1468160363}
   orderPanelPrefab: {fileID: 3250251645762834161, guid: 57ae5de28d849364aa39d4754b677a04, type: 3}
   npcGameObject: {fileID: 0}
-  incorrectOrderPanelPrefab: {fileID: 0}
 --- !u!114 &1996133394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36808,7 +37116,7 @@ GameObject:
   - component: {fileID: 2005415260}
   - component: {fileID: 2005415259}
   m_Layer: 0
-  m_Name: item (3)
+  m_Name: med3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37890,7 +38198,7 @@ GameObject:
   - component: {fileID: 2058116602}
   - component: {fileID: 2058116601}
   m_Layer: 0
-  m_Name: item (7)
+  m_Name: med8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38489,7 +38797,7 @@ PrefabInstance:
       objectReference: {fileID: 805974083}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectOrder
+      value: OnSelectOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -38625,6 +38933,26 @@ PrefabInstance:
     - target: {fileID: 1396493400843596409, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_Name
       value: saleprice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927903101}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectOrder
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599652018454146603, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3218130843744540919, guid: f4dbdf792431f5242a3dda9dbd99e934, type: 3}
       propertyPath: m_SizeDelta.x
