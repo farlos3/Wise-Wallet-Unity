@@ -663,18 +663,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 513806959}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
-        m_MethodName: SelectCharacter1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &513806956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 638159723}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000001621665, y: 0.000000093626696, z: 0.70710576, w: -0.7071079}
-  m_LocalPosition: {x: 10.05, y: -3.02, z: 0}
+  m_LocalPosition: {x: 11.72, y: -2.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1367,18 +1355,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 951553188}
-        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
-        m_MethodName: SelectCharacter2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &951553191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,7 +1517,7 @@ Transform:
   m_GameObject: {fileID: 981740451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -5.36, z: 0}
+  m_LocalPosition: {x: -0.11, y: -6.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1574,7 +1550,7 @@ Transform:
   m_GameObject: {fileID: 1462777766}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000001621665, y: 0.000000093626696, z: 0.70710576, w: -0.7071079}
-  m_LocalPosition: {x: -10, y: -2.95, z: 0}
+  m_LocalPosition: {x: -11.76, y: -2.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

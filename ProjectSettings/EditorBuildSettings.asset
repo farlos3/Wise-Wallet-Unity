@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Wise Wallet Map/Scenes/SelectCharacter.unity
     guid: 3bbb91e0dd403804682b16504289d4ae
+  - enabled: 1
+    path: Assets/Wise Wallet Map/Scenes/ShoppingMall.unity
+    guid: f8022421be6554a4cb3cf92f33adac15
   m_configObjects: {}

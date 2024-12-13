@@ -257,8 +257,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2. Buy candy for 40 baht.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -841,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 659.79004, y: -333.21}
+  m_AnchoredPosition: {x: 738, y: -346.02}
   m_SizeDelta: {x: 322.71, y: 111.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513806955
@@ -895,7 +895,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -1147,7 +1147,7 @@ Transform:
   m_GameObject: {fileID: 638159723}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000001621665, y: 0.000000093626696, z: 0.70710576, w: -0.7071079}
-  m_LocalPosition: {x: 10.05, y: -3.02, z: 0}
+  m_LocalPosition: {x: 11.68, y: -2.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1377,8 +1377,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1. Buy a book for 300 baht.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1719,8 +1719,8 @@ MonoBehaviour:
 
     2'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1989,7 +1989,7 @@ Transform:
   m_GameObject: {fileID: 1462777766}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000001621665, y: 0.000000093626696, z: 0.70710576, w: -0.7071079}
-  m_LocalPosition: {x: -10, y: -2.95, z: 0}
+  m_LocalPosition: {x: -11.84, y: -2.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2335,7 +2335,7 @@ MonoBehaviour:
   jumpForce: 10
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!50 &1687632078
 Rigidbody2D:
   serializedVersion: 4
@@ -2571,15 +2571,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2789,8 +2789,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Received: 500 Baht'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2923,15 +2923,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
-  m_sharedMaterial: {fileID: -7060849193496957599, guid: d2a82ea10db4a974c92024bcb5be71ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.45
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

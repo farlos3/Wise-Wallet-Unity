@@ -37,7 +37,7 @@ public class CharacterSelector : MonoBehaviour
             PlayerPrefs.Save();
             Debug.Log($"Selected character: {characters[characterIndex].name}");
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {

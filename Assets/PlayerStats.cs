@@ -1,15 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // สำหรับ UI
-using TMPro; // ถ้าใช้ TextMeshProUGUI
+using System.Collections.Generic; // เพิ่มบรรทัดนี้
+using UnityEngine.UI;  // สำหรับ UI.Text
+using TMPro;  // ถ้าใช้ TextMeshProUGUI
 
 public class PlayerStats : MonoBehaviour
 {
     [Header("Money Settings")]
-    public float startingMoney; // เงินเริ่มต้น
-    public float remainmoney;
+    public float startingMoney;  // เงินเริ่มต้นที่สามารถตั้งค่าได้ใน Unity Inspector
+    public float remainmoney;  // เงินเริ่มต้นที่สามารถตั้งค่าได้ใน Unity Inspector
+
     public float TotalMoney { get; private set; } // เงินที่ผู้เล่นมีในปัจจุบัน
-    public float RemaninMoney { get; private set; }
+    public float RemaninMoney { get; private set; } 
+
 
     [Header("UI References")]
     public TMP_Text moneyText; // ถ้าใช้ TextMeshProUGUI
@@ -22,13 +24,13 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         Inventory = new Dictionary<string, int>();
-        TotalMoney = startingMoney; // ตั้งค่าเงินเริ่มต้นจาก Inspector
+        TotalMoney = startingMoney;  // ตั้งค่าเงินเริ่มต้นจาก Inspector
         RemaninMoney = remainmoney;
     }
 
     private void Start()
     {
-        UpdateMoneyDisplay(); // แสดงผลเงินตอนเริ่มต้น
+        UpdateMoneyDisplay();  // แสดงผลเงินตอนเริ่มต้น
     }
 
     // ฟังก์ชั่นอัปเดตการแสดงผลเงิน
@@ -43,18 +45,17 @@ public class PlayerStats : MonoBehaviour
             Debug.LogWarning("MoneyText is not assigned!");
         }
     }
-
     public void UpdateExpensesDisplay()
+{
+    if (expensestext != null)
     {
-        if (expensestext != null)
-        {
-            expensestext.text = "Total expenses : " + Expenses.ToString("F0");
-        }
-        else
-        {
-            Debug.LogWarning("ExpensesText is not assigned!");
-        }
+        expensestext.text = "Total expenses : " + Expenses.ToString("F0");
     }
+    else
+    {
+        Debug.LogWarning("ExpensesText is not assigned!");
+    }
+}
 
     // เมื่อมีการใช้เงิน
     public bool SpendMoney(float amount)
@@ -63,7 +64,7 @@ public class PlayerStats : MonoBehaviour
         {
             TotalMoney -= amount;
             Expenses += amount;
-            UpdateMoneyDisplay();
+            UpdateMoneyDisplay();  // อัปเดตการแสดงผลเงิน
             UpdateExpensesDisplay();
             return true;
         }
@@ -75,7 +76,7 @@ public class PlayerStats : MonoBehaviour
     public void AddMoney(float amount)
     {
         TotalMoney += amount;
-        UpdateMoneyDisplay(); // อัปเดตการแสดงผลเงิน
+        UpdateMoneyDisplay();  // อัปเดตการแสดงผลเงิน
     }
 
     // ฟังก์ชั่นสำหรับการแสดงรายการสินค้าหรือทำการซื้อ
@@ -108,7 +109,7 @@ public class PlayerStats : MonoBehaviour
 
             AddItem(item.Name); // เพิ่มสินค้าในคลัง
 
-            UpdateMoneyDisplay(); // อัปเดตการแสดงผลเงิน
+            UpdateMoneyDisplay();  // อัปเดตการแสดงผลเงิน
             UpdateExpensesDisplay();
             Debug.Log($"Bought {item.Name} for {item.Price}. Remaining money: {TotalMoney}");
             return true;
@@ -152,21 +153,4 @@ public class PlayerStats : MonoBehaviour
     {
         return Inventory.ContainsKey(itemName) && Inventory[itemName] >= requiredQuantity;
     }
-<<<<<<< HEAD:Assets/PlayerStats.cs
 }
-=======
-
-    public bool BuyShop(string shopName, float shopPrice)
-    {
-        if (TotalMoney >= shopPrice)
-        {
-            SpendMoney(shopPrice);
-            Debug.Log($"You are now the owner of {shopName}!");
-            return true;
-        }
-        Debug.LogWarning("Not enough money to buy the shop!");
-        return false;
-    }
-
-}
->>>>>>> 5d4c33dfa0bf321b2c8146dbbf07f0338ada5f59:Wise Wallet/Assets/PlayerStats.cs
