@@ -18,7 +18,6 @@ public class Shop : MonoBehaviour
             RelatedObject = relatedObject;
             ItemIcon = itemIcon;
         }
-
     }
 
     [Header("Shop Settings")]
@@ -28,7 +27,7 @@ public class Shop : MonoBehaviour
     public Inventory inventory;  // Reference to Inventory
     [SerializeField] public PlayerStats playerStats;  // เชื่อมโยงกับ PlayerStats
 
-     private void Awake()
+    private void Awake()
     {
         if (playerStats == null) // ตรวจสอบว่าถ้ายังไม่ได้ตั้งค่าใน Inspector
         {
@@ -64,23 +63,14 @@ public class Shop : MonoBehaviour
 
         ShopItem item = GetItem(itemName);  // ดึงข้อมูลสินค้า
 
-        if (item != null && playerStats.TotalMoney >= item.Price)
+        if (item != null && playerStats.RemaninMoney >= item.Price) 
         {
             // ใช้ฟังก์ชันของ PlayerStats ในการซื้อสินค้า
             if (playerStats.BuyItemFromShop(this, itemName))
             {
                 // เพิ่มสินค้าใน Inventory
                 inventory.AddItemFromShop(item);
-
-                // สร้าง Prefab ของ Item ใน Inventory Panel
-                GameObject newItem = Instantiate(inventory.itemPrefab, inventory.displayContainer);
-                InventoryItemDisplay itemDisplay = newItem.GetComponent<InventoryItemDisplay>();
-
-                if (itemDisplay != null)
-                {
-                    // ตั้งค่าข้อมูลสินค้าใน Inventory
-                    itemDisplay.SetItem(item.Name, float.Parse(item.Price.ToString("F0")), item.ItemIcon, null);  // ไม่ใช้ PriceObject
-                }            }
+            }
         }
         else
         {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,8 +8,8 @@ public class InventoryItemDisplay : MonoBehaviour
     public GameObject itemPriceObject;  // UI GameObject for item price
     public Image itemImage;             // UI Image for item icon
 
-    // Function to set item data in the UI
-    public void SetItem(string name, float price, Sprite icon, GameObject priceObject)
+    // Set item data in the UI
+    public void SetItem(string name, float price, Sprite icon)
     {
         if (itemNameText != null)
             itemNameText.text = name; // Set item name text
@@ -28,41 +26,17 @@ public class InventoryItemDisplay : MonoBehaviour
             {
                 priceText.text = price.ToString("F0"); // Format price as currency
             }
-            else
-            {
-                Debug.LogWarning("ItemPriceObject does not contain a TextMeshProUGUI component!");
-            }
         }
-        else
-        {
-            Debug.LogWarning("ItemPriceObject is null!");
-        }
-
-        if (priceObject != null)
-        {
-            priceObject.SetActive(true);
-            var additionalPriceText = priceObject.GetComponentInChildren<TextMeshProUGUI>();
-            if (additionalPriceText != null)
-            {
-                additionalPriceText.text = price.ToString("C");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("PriceObject is null!");
-        }
-
-        Debug.Log($"SetItem called for: {name} with price: {price} and icon: {icon?.name}");
     }
 
-    // ปิดการแสดงผลของราคาสินค้าโดยซ่อน itemPriceObject
+    // Hide the price if needed
     public void HidePrice()
     {
         if (itemPriceObject != null)
             itemPriceObject.SetActive(false);
     }
 
-    // Function to reset display
+    // Reset display
     public void ResetDisplay()
     {
         if (itemNameText != null)

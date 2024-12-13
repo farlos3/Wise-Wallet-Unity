@@ -162,6 +162,4 @@ public class MissionManager : MonoBehaviour
             expensesText.text = "Expenses: " + playerStats.Expenses.ToString("F0");
         }
     }
-
-
 }
